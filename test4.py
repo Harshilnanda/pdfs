@@ -20,7 +20,7 @@ def main():
     prompt = PromptTemplate(template=template, input_variables=["question"])
 
     # Example input question
-    question = "What is 2+2"
+    question = "What is 2+4"
 
     # Run the chain and get the output
     chain = prompt | llm | StrOutputParser()
