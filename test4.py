@@ -2,7 +2,7 @@ import re
 from langchain.prompts.prompt import PromptTemplate
 from langchain_ollama import ChatOllama
 from langchain_core.output_parsers import StrOutputParser
-from mypackage.
+from mypackage.testing import greet
 
 def remove_think_tags(text):
     return re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL).strip()
@@ -28,6 +28,7 @@ def main():
 
     # Print the response
     print("Response:", remove_think_tags(response))
+    print(greet("harshil"))
 
 if __name__ == "__main__":
     main()
