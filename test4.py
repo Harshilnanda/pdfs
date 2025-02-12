@@ -1,14 +1,22 @@
 import re
 from langchain.prompts.prompt import PromptTemplate
 from langchain_ollama import ChatOllama
+from langchain_core.tools import Tool
+from langchain import hub
 from langchain_core.output_parsers import StrOutputParser
+from langchain.agents import (
+    create_react_agent,
+    AgentExecutor,
+)
+
+
 
 def remove_think_tags(text):
     return re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL).strip()
 
 def main():
     # Initialize the Ollama LLM
-    llm = ChatOllama(model="deepseek-r1:1.5b")
+    llm = ChatOllama(model="deepseek-r1:8b",temperature=0)
 
     # Define a prompt template
     template = """
