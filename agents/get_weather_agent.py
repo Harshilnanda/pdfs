@@ -17,7 +17,7 @@ def lookup(cityname:str) -> str:
     tools_for_agent = [
         Tool(
             name="Search City Weather",
-            func="?"
+            func="?",
             description="useful when needed to find the weather of a city",
         )
     ]
