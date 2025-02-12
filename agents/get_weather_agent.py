@@ -1,3 +1,5 @@
+from tools.tools import get_weather_tavily
+
 from langchain.prompts.prompt import PromptTemplate
 from langchain_ollama import ChatOllama
 from langchain_core.tools import Tool
@@ -17,7 +19,7 @@ def lookup(cityname:str) -> str:
     tools_for_agent = [
         Tool(
             name="Search City Weather",
-            func="?",
+            func=get_weather_tavily,
             description="useful when needed to find the weather of a city",
         )
     ]
@@ -35,3 +37,7 @@ def lookup(cityname:str) -> str:
     final_result=result["output"]
 
     return final_result
+
+if __name__=="__main__":
+    w=lookup(cityname="Delhi")
+    print(w)
