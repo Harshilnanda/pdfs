@@ -4,11 +4,6 @@ from langchain_ollama import ChatOllama
 from langchain_core.tools import Tool
 from langchain import hub
 from langchain_core.output_parsers import StrOutputParser
-from langchain.agents import (
-    create_react_agent,
-    AgentExecutor,
-)
-
 
 
 def remove_think_tags(text):
